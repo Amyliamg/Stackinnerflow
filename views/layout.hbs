@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<link rel="icon" href="http://example.com/favicon.png">
+
+<meta charset="utf-8">
+<title></title>
+<!--link rel="stylesheet" href="/css/site.css" type="text/css" media="screen" title="no title" charset="utf-8"-->
+</head>
+<body>
+
+
+<div id="outer">
+<header>
+<nav>
+		<span class="home-link"><a href="/">Main Page</a> {{#if user}}| <a href="/editing/">Working on it</a>{{/if}}</span>
+	<span class="login-status">
+{{#if user}}
+<!--<span class="success">Logged in as: {{user.username}}</span>-->
+Logged in as: {{user.username}} <form method="GET" action="/logout" id="logout-form"> | <button>logout</button></form>
+{{else}}
+ <a href="/register">Register</a> or <a href="/login">Login</a>
+{{/if}}
+	</span>
+</nav>
+</header>
+
+<h1>StockInnerFlow 🌊</h1>
+
+<div class="content">
+
+{{{ body }}}
+
+</div>
+</body>
+</html>
