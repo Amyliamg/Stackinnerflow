@@ -93,6 +93,8 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
     * To generate an email template, I choose to use Chat GPT API to generate the template based on user input data
 * (6 points) React
     * used React as the frontend framework; it is hard, so I give this 5 points
+* Digital Ocean (1 point) <---------------------- update for milestone 2
+* Mongodb Altas Cloud Database (1 point) <---------------------- update for milestone 2
 
 10 points total out of 8 required points 
 
