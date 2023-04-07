@@ -33,7 +33,9 @@ app.get('/', async (req, res) => {
   });
 
 app.post('/', async (req, res) => {
-  res.render('new', {user: req.session.user, home: true});
+  const stockname = req.body.stockname;
+
+  res.render('index', {user: req.session.user, home: true, stockname: stockname });
   });
 
 app.get('/register', (req, res) => {

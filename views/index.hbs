@@ -1,9 +1,12 @@
 <h1> Welcome</h1>
-<form method="POST" action="">
-	<div>
-		<label for="addYourStack">StackName:</label>
-		<input type="text" name="username" value="">
+<form method="POST" action="/">
+    <div>
+        <label for="addYourStack">StockName:</label>
+        <input type="text" name="stockname">
         <input type="submit" value="add">
-	</div>
-	
+    </div>
+  
+	{{#if stockname}}
+    <li>{{ stockname }}</li>
+    {{/if}}
 </form>
