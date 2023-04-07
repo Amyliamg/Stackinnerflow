@@ -32,6 +32,10 @@ app.get('/', async (req, res) => {
     res.render('index', {user: req.session.user, home: true});
   });
 
+app.post('/', async (req, res) => {
+  res.render('new', {user: req.session.user, home: true});
+  });
+
 app.get('/register', (req, res) => {
     res.render('register');
   });
