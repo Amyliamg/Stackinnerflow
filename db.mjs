@@ -11,6 +11,7 @@ try {
 const itemSchema = new mongoose.Schema({
   name: String,
   ticket: String,
+  date: Date,
   price: Number
 });
 
@@ -34,9 +35,9 @@ const UserSchema = new mongoose.Schema({
 });
 
 mongoose.model('User', UserSchema);
-//mongoose.model('User', UserSchema);
+mongoose.model('Stock', StocklistSchema);
 
-
+mongoose.model('Item', itemSchema);
 
 
 

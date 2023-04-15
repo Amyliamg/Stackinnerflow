@@ -27,10 +27,56 @@ app.use(session({
 }));
 
 const User = mongoose.model('User');
+const Stock = mongoose.model('Stock');
+const Item =  mongoose.model('Item');
 
 app.get('/', async (req, res) => {
-    res.render('index', {user: req.session.user, home: true});
+    res.render('welcome', {user: req.session.user, home: true});
+
+    //res.render('index', {user: req.session.user, home: true});
   });
+
+app.get('/email', async (req, res) => {
+    res.render('email', {user: req.session.user});
+
+  });
+
+
+
+  
+app.get('/edit', async (req, res) => {
+  const obj = {};
+  Item.find(obj)
+      .then((items) => {
+        res.render('index', {user: req.session.user, items});
+      })
+
+
+   
+});
+
+
+app.get('/new', async (req, res) => {
+  res.render('new');
+
+});
+
+
+
+app.post('/edit', async function(req, res) {
+  const item = new Item({
+    name: req.body.stockname,
+    ticket: req.body.ticketname,
+    price: req.body.price,
+    year: req.body.year,
+
+  });
+  await item.save();
+
+  res.redirect('/edit');
+
+
+});
 
 app.post('/', async (req, res) => {
   const stockname = req.body.stockname;
@@ -77,9 +123,7 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
-app.get('/login', (req, res) => {
-    res.render('login');
-});
+
 
 app.post('/login', async (req, res) => {
   const username = sanitize(req.body.username);
@@ -99,7 +143,7 @@ app.post('/login', async (req, res) => {
         res.render('login', {message: "The password is incorrect"});
       }else{
         await startAuthenticatedSession(req,user);
-        res.redirect(req.session.redirectPath || '/');
+        res.redirect(req.session.redirectPath || '/edit');
     } 
     }
 
@@ -116,5 +160,7 @@ app.get('/logout', async (req, res) => {
     await endAuthenticatedSession(req);
     res.redirect('/');
   });
+
+
 
 app.listen(process.env.PORT || 3000);

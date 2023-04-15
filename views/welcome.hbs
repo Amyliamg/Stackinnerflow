@@ -1,0 +1,32 @@
+     <!--Navigation Bar-->
+  <nav>
+        <span class="home-link">
+             {{#if user}}
+              <a href="/edit">Go Back to Edit</a>
+               {{else}}
+                <a href="/">Main Page</a> 
+            {{/if}}
+        </span>
+        <span class="login-status">
+          {{#if user}}
+      <!--<span class="success">Logged in as: {{user.username}}</span>-->
+          Logged in as:  {{user.username}} </span>
+            <form method="GET" action="/logout" id="logout-form"> 
+              <button>logout</button>
+            </form>
+          {{else}}
+            <a href="/register">Register</a> or <a href="/login">Login</a>
+          {{/if}}
+        </span>
+    </nav>
+    
+    
+    
+    <video class="video-background" autoplay loop muted>
+      <source src="/video.mp4" type="video/mp4">
+    </video>
+    
+    <h1 class="centertext" id="title"> 🍃 StockInnerFlow</h1>
+    <h2 class="centertext" id="subtitle">Earn More than You See </h1>
+
+    <div class="content">

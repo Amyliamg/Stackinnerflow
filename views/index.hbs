@@ -1,12 +1,50 @@
-<h1> Welcome</h1>
-<form method="POST" action="/">
-    <div>
-        <label for="addYourStack">StockName:</label>
-        <input type="text" name="stockname">
-        <input type="submit" value="add">
-    </div>
-  
-	{{#if stockname}}
-    <li>{{ stockname }}</li>
-    {{/if}}
+<!-- This is the page where -->
+
+<h1>Welcome, {{#if user}}
+    <!--<span class="success">Logged in as: {{user.username}}</span>-->
+    {{user.username}} 
+  {{/if}}
+  </h1>
+<span class="home-link"> 
+    <a href="/email">Send a Email</a>
+</span>
+<span class="home-link">
+            {{#if user}}
+              <a href="/">Go Back to MainPage</a>
+            {{/if}}
+        </span>
+
+
+<form method="POST" action="/edit"> <!--style="display: inline-block;"-->
+    <input type="text", name="stockname" placeholder="Stockname" required>
+    <input type="text", name="ticketname" placeholder="Ticket" required >
+    <input type="text", name="year" placeholder="2023..."  style="" required>
+    <input type="number", name="price" placeholder="20..."  style="" required>
+    <input type="submit" value="Add" >
 </form>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ticket</th>
+      <th>Year</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each items}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.ticket}}</td>
+      <td>{{this.year}}</td>
+      <td>{{this.price}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+

@@ -1,0 +1,73 @@
+.video-background { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: auto;
+    overflow: hidden;
+    opacity: 0.3;
+    z-index: -1;
+  }
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+.centertext{
+    text-align: center;
+    
+    
+  }
+
+#title{
+  padding-top:180px;
+  color: #0c2c44; 
+  font-size: 500%;
+
+}
+
+#subtitle{
+  color: #3E5E76; 
+  font-family: 'Kaushan Script', cursive;
+}
+
+.back{
+    position:aboslute;
+    right:0;
+    bottom:0;
+    z-index: -1;
+
+  }
+
+
+
+/*style for the background video*/
+
+form{
+  display: flex;
+  flex-direction:column;
+  width:24rem;
+  gap:1rem;
+
+
+}
+input, textarea{
+  padding:1.4rem;
+  background:transparent;
+  border: 1px solid black;
+
+}
+textarea{
+  height: 6rem;
+}
+button{
+  width:8rem;
+  padding:1.2 rem;
+  cursor:pointer;
+  background:#0c2c44;
+  color: white;
+}

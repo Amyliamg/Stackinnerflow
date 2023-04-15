@@ -2,6 +2,7 @@
   "name": "y",
   "version": "1.0.0",
   "description": "The content below is an example project proposal / requirements document. Replace the text below the lines marked \"__TODO__\" with details specific to your project. Remove the \"TODO\" lines.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,9 +28,11 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "mongo-sanitize": "^1.1.0",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.0.3",
+    "openai": "^3.2.1"
   }
 }
