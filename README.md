@@ -1,7 +1,9 @@
 The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
 
-# InvestIQ
+
+
+# StackInnerFlow
 
 ## Overview
 
@@ -22,7 +24,7 @@ The application will store Users, StockListids and Emailinformation
 
 An Example User:
 
-```javascript
+```javascript    
 {
   username: "Happier",
   hash: // a password hash,
@@ -54,13 +56,14 @@ An Example List with Embedded Items:
 
 ![list add](documentation/add.png)
 
-/list - page for showing all my stock lists
+/edit - page for showing all my stock lists   <---------------------- re-write for milestone 3
 
 ![list](documentation/list.png)
 
-/email - page for sending email to share stock lists to others 
+/email - page for sending email to share stock lists to others   <---------------------- update for milestone 3
 
 ![list](documentation/email.png)
+
 
 ## Site map
 
@@ -88,7 +91,7 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 (__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
 
-* (2 points) Stock API and Chat GPT API
+* (2 points) Chat GPT API  <---------------------- update for milestone 3! 
     * To get the accurate stock price, I need to connect one API.
     * To generate an email template, I choose to use Chat GPT API to generate the template based on user input data
 * (6 points) React
@@ -105,6 +108,10 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 ## [Link to Initial Main Project File](app.mjs) 
 
 (__TODO__: create a skeleton Express application with a package.json, app.mjs, views folder, etc. ... and link to your initial app.mjs)
+
+## [Link to Initial Main Project File](openai.mjs)  <---------------------- update for milestone 3
+
+(This is the detailed steps to connect the OpenAI API with user input value)
 
 ## Annotations / References Used
 
