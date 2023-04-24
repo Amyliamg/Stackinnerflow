@@ -1,13 +1,7 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
-
-
 
 # StackInnerFlow
 
 ## Overview
-
-(__TODO__: a brief one or two paragraph, high-level description of your project)
 
 Getting simple information about the stock you bought is reallllly difficult. Currently, the Apps about stock trade often illustrates other informations for stock traders. However, as a beginner to just in the finance, it is really hard to understand them and trade those information to trade their stock. 
 
@@ -16,38 +10,37 @@ InvestIQ is a web app that will allow users to keep track of their chosen stock 
 
 ## Data Model
 
-The application will store Users, StockListids and Emailinformation
+The application will store Users, StockListids information
+* users can have multiple Stocks (the ticket of the Stock is the unique id)
+* each user will only have one list to store their Stocks 
 
-* users can have multiple StockListids (via references)
-* each list can have multiple Emailinformation (by embedding)
 
-
-An Example User:
+An Example Item (a stock):
 
 ```javascript    
 {
-  username: "Happier",
-  hash: // a password hash,
-  StockListids: // an array of references to List documents
+  name: "WholeFood", 
+  ticket: "WFM", 
+  price: 20, 
+  date: 04/23/2023
 }
 ```
 
-An Example List with Embedded Items:
+An Example User (List with Embedded Items):
 
 ```javascript
 {
   user: // a reference to a User object
   name: "Food Market",
   items: [
-    { name: "WholeFood", ticket: "WFM", price: $20},
-    { name: "Walmart", ticket: "WMT", price: $139},
-  ],
-  createdAt: // timestamp
+    { name: "WholeFood", ticket: "WFM", price: 20, date: 04/23/2023},
+    { name: "Walmart", ticket: "WMT", price: 139, date: 04/23/2023},
+  ]
 }
 ```
 
 
-## [Link to Commented First Draft Schema](db.mjs) 
+### [Link to Commented First Draft Schema](db.mjs) 
 
 
 ## Wireframes
@@ -69,9 +62,19 @@ An Example List with Embedded Items:
 
 ![list](documentation/outlint.png)
 
-(__TODO__: draw out a site map that shows how pages are related to each other)
 
 Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+
+## Actual Page URL
+- /             ->   Main/Welcome Page 
+- /register     ->   Register Page 
+- /login        ->   Login Page 
+- /edit         ->   Edit Page where users could have "Send Emails", "Add with API", "Ask ChatGPT", and "Go Back to HomePage" functions
+- /email        ->  where user could send emails
+- /api/stock    ->  where user could ask API about the price of their selected tickets
+- /ask-chatgpt  ->  where user could ask ChatGPT about their investment plans 
+- /new        ->  where user could send emails
+
 
 ## User Stories or Use Cases
 
@@ -84,39 +87,48 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
    3. I can see my stock lists
    4. I can add to my existed stock lists
    5. I could delete the stock lists
-   6. I could generate a PDF version of the list
-   7. I could send a email and create a template with ChatGPT to share my lists to others
+   6. I could send a email and create a template with ChatGPT to share my lists to others
 
 ## Research Topics
 
-(__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
 
-* (2 points) Chat GPT API  <---------------------- update for milestone 3! 
+* (2 points) Chat GPT API 
     * To get the accurate stock price, I need to connect one API.
     * To generate an email template, I choose to use Chat GPT API to generate the template based on user input data
+* (2 points) EmailJS API 
+    * Enable to send the email to user based on their input values 
 * (6 points) React
     * used React as the frontend framework; it is hard, so I give this 5 points
-* Digital Ocean (1 point) <---------------------- update for milestone 2
-* Mongodb Altas Cloud Database (1 point) <---------------------- update for milestone 2
+* Digital Ocean (1 point) 
+    * Cloud to deploy the website 
+* Mongodb Altas Cloud Database (1 point) 
+    * Cloud database to store the dataset about this webpage
+* (5 points) Selenium Test
+    * used Selenium to check whether the webpage works 
 
-10 points total out of 8 required points 
+10 points total out of 10 required points 
 
 
 (___TODO__: addtional points will __not__ count for extra credit)
 
 
-## [Link to Initial Main Project File](app.mjs) 
+## [Link to App.mjs](app.mjs) 
+This is the main doc to tell program how to deal with the users API requests 
 
-(__TODO__: create a skeleton Express application with a package.json, app.mjs, views folder, etc. ... and link to your initial app.mjs)
+## [Link to db.mjs](db.mjs)  
+This is the link that specifies how to set up the MongoDB database for this project
 
-## [Link to Initial Main Project File](openai.mjs)  <---------------------- update for milestone 3
+## [Link to auth.mjs](auth.mjs) 
+The docs tell the logic of how to set up the authentication for this project
 
-(This is the detailed steps to connect the OpenAI API with user input value)
+## [Link to openai.mjs](openai.mjs) 
+The docs tell the logic of how to use OpenAI API
+
+## [Link to test.mjs](test.mjs) 
+Using selenium to test the code 
+
 
 ## Annotations / References Used
-
-(__TODO__: list any tutorials/references/etc. that you've based your code off of)
-
 
 1. [tutorial on React](https://www.google.com/search?q=tutorial+on+react&rlz=1C5CHFA_enUS969US969&oq=tutorial+on+react&aqs=chrome..69i57j0i512l2j0i22i30l7.3428j0j4&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:6940e391,vid:Ke90Tje7VS0) - (add link to source code that was based on this)
 
@@ -125,6 +137,8 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 3. [Advanced ChatGPT Guide - How to build your own Chat GPT Site](https://www.youtube.com/watch?v=bB7xkRsEq-g)
 
 4. [Send Email using HTML + JavaScript (EmailJs Tutorial)](https://www.youtube.com/watch?v=dgcYOm8n8ME)
+
+5. [How to use Selenium](https://www.browserstack.com/guide/automation-using-selenium-javascript)
+
 --------------------------------------------------------
-Great insights from the assignment template
-[passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
+

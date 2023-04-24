@@ -95,10 +95,6 @@ app.get('/email', async (req, res) => {
   });
 
 
-app.get('/new', async (req, res) => {
-  res.render('new');
-
-});
 
 app.get('/ask-chatgpt', (req, res) => {
   res.render('chatGPT');
