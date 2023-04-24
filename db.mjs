@@ -11,31 +11,21 @@ try {
 const itemSchema = new mongoose.Schema({
   name: String,
   ticket: String,
-  date: Date,
+  date: String,
   price: Number
 });
 
 
-const StocklistSchema = new mongoose.Schema({
-    username: String,
-    name: String,
-    items: [itemSchema],
-    createdAt: {
-        type: Date,
-        default: Date.now
-      }  
-});
 
 
 
 const UserSchema = new mongoose.Schema({
     username: {type: String, required: true, minLength: 3, maxLength: 20},
     password: {type: String, required: true, minLength: 8},
-	StockListids: [StocklistSchema],  
+    items: [itemSchema],  
 });
 
 mongoose.model('User', UserSchema);
-mongoose.model('Stock', StocklistSchema);
 
 mongoose.model('Item', itemSchema);
 

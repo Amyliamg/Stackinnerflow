@@ -1,50 +1,141 @@
-<!-- This is the page where -->
+  <style>
+  .bg-grey {
+    background-color: #f1f1f1;
+  }
+  #close-button {
+    display: inline-block;
+  }
+</style>
 
-<h1>Welcome, {{#if user}}
-    <!--<span class="success">Logged in as: {{user.username}}</span>-->
-    {{user.username}} 
-  {{/if}}
-  </h1>
-<span class="home-link"> 
-    <a href="/email">Send a Email</a>
-</span>
-<span class="home-link">
-            {{#if user}}
-              <a href="/">Go Back to MainPage</a>
-            {{/if}}
-        </span>
+<body class="bg-grey"> 
+    <nav>
+      <h1 style="color: black;">Welcome, {{#if user}}
+      <!--<span class="success">Logged in as: {{user.username}}</span>-->
+      {{user.username}} 
+          {{/if}}
+      </h1>
+      <a href="/email">Send a Email</a>
+      <a href="/api/stock">Add with API</a>
+      <a href="/ask-chatgpt">Ask ChatGPT</a>
+      {{#if user}}
+        <a href="/">Go Back to HomePage</a>
+      {{/if}}
+      
+    </nav>
 
+<main style="text-align: center;">
 
-<form method="POST" action="/edit"> <!--style="display: inline-block;"-->
-    <input type="text", name="stockname" placeholder="Stockname" required>
-    <input type="text", name="ticketname" placeholder="Ticket" required >
-    <input type="text", name="year" placeholder="2023..."  style="" required>
-    <input type="number", name="price" placeholder="20..."  style="" required>
-    <input type="submit" value="Add" >
-</form>
+<button id="add-button" style="margin-bottom:5%;width:40%; background-color: #B2D3C2; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px; display: block; margin: 0 auto;">Do you want to add more stock?</button>
+<button id="close-button" style="display:none;margin-bottom:5%;width:36%; background-color: #B2D3C2; color: white; padding: 14px 20px; border: none; cursor: pointer; border-radius: 4px;">Close</button>
+  <form id="add-form" method="POST" action="/edit" style="display:none">
 
+    <input type="text"  name="stockname" id="stockname" placeholder="Stockname" required>
+    <input type="text" name="ticket" id="ticket" placeholder="Ticket" required>
+    <input type="number" name="price" id="price" placeholder="20..." required>
+    <input type="submit" value="Add" id="Add">
+  </form>
+  <div style="width: 66%;">
+    <table >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Ticket</th>
+          <th>Date</th>
+          <th>Price</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Ticket</th>
-      <th>Year</th>
-      <th>Price</th>
-    </tr>
-  </thead>
+      <tbody>
+        {{#each items}}
+          <tr id="{{this._id}}">
+            <td contenteditable="true">{{this.name}}</td>
+            <td contenteditable="true">{{this.ticket}}</td>
+            <td contenteditable="true">{{this.date}}</td>
+            <td contenteditable="true">{{this.price}}</td>
+            <td>
+              <form method="POST" action="/delete">
+                <input type="hidden" name="id" value="{{this._id}}">
+                <button  style="width: 100%;" type="submit">Delete</button>
+              </form>
+            </td>
+            <td>
+              <form method="POST" action="/save">
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="id" value="{{this._id}}">
+                <button id="save-btn" style="width: 100%;" type="submit">Save</button>
+               
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+          <p>※Ticket is a unique value. If you want to change a ticket, it will create another item!</p>
+          <p>※The API will not work during the weekend or after markets close, as it provides live data</p>
 
-  <tbody>
-    {{#each items}}
-    <tr>
-      <td>{{this.name}}</td>
-      <td>{{this.ticket}}</td>
-      <td>{{this.year}}</td>
-      <td>{{this.price}}</td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
+</main>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  // Get all the save buttons
+  const saveButtons = document.querySelectorAll("#save-btn");
 
+  // Loop through the save buttons and add event listeners to each of them
+  saveButtons.forEach(function(saveButton) {
+    saveButton.addEventListener("click", function() {
+      const stockName = saveButton.parentNode.parentNode.parentNode.querySelector("td:nth-child(1)").textContent;
+      const ticket = saveButton.parentNode.parentNode.parentNode.querySelector("td:nth-child(2)").textContent;
+      const date = saveButton.parentNode.parentNode.parentNode.querySelector("td:nth-child(3)").textContent;
+      const stockPrice = saveButton.parentNode.parentNode.parentNode.querySelector("td:nth-child(4)").textContent;
+      const id = saveButton.parentNode.parentNode.parentNode.querySelector("input[name='id']").value;
 
+      // Send a POST request to the server to update the item
+      fetch("/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id: id,
+          stockname: stockName,
+          ticket: ticket,
+          date: date,
+          price: stockPrice
+        })
+      }).then(response => {
+        // Show a popup message and redirect the user to the /edit page
+        alert("Item updated successfully");
+        window.location.href = "/edit";
+      }).catch(error => {
+        console.log(error);
+        alert("Failed to update item");
+      });
+    });
+  });
+
+  // Get the "Add" button and the form
+  const addButton = document.getElementById("add-button");
+  const addForm = document.getElementById("add-form");
+  const closeButton = document.getElementById("close-button");
+
+  // When the "Add" button is clicked, show the form and hide the "Add" button
+  addButton.addEventListener("click", function() {
+    addButton.style.display = "none";
+    closeButton.style.display = "block";
+    addForm.style.display = "block";
+  });
+
+  // When the "Close" button is clicked, hide the form and show the "Add" button again
+  closeButton.addEventListener("click", function() {
+    closeButton.style.display = "none";
+    addButton.style.display = "block";
+    addButton.style.textAlign = "center";
+    addButton.textContent = "Do you want to add more stock?";
+    addForm.style.display = "none";
+  });
+});
+
+</script>
+
+</body>

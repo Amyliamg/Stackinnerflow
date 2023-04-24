@@ -1,0 +1,81 @@
+<style>
+div{
+    width: 40%;
+}
+  .bg-grey {
+    background-color: #f1f1f1;
+  }
+  .chat-entry {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .chat-entry.user {
+    background-color: #cce5ff;
+    align-self: flex-start;
+  }
+  .chat-entry.chatgpt {
+    background-color: #f2f2f2;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  #close-button {
+    display: inline-block;
+
+  }
+</style>
+
+<body class="bg-grey"> 
+
+<nav>
+    <h1 style="color: black;">Chat with OpenAI GPT-3</h1>
+    <a href="/edit">Go Back to Last Page</a>
+</nav>
+
+<div id="chatbox">
+    
+    <form method="POST">
+      <input type="text" id="inputButton" placeholder="Type your message here...">
+      <button type="submit" id="send">Send</button>
+    </form>
+  </div>
+<div id="chatlog"> <!-- chatlog element -->
+</div>
+
+<script>
+function setResponse(role, message) {
+  const chatlog = document.getElementById("chatlog");
+  const entry = document.createElement("div");
+  entry.classList.add("chat-entry", role);
+  message = message.trim();
+  entry.innerText = message;
+  chatlog.appendChild(entry);
+  chatlog.appendChild(entry);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get the send button
+  const sendButton = document.getElementById("send");
+
+  // Add an event listener to the send button
+  sendButton.addEventListener("click", function() {
+    event.preventDefault();
+    const message = document.getElementById("inputButton").value;
+
+    // Send a POST request to the server to generate a response
+        fetch("/ask-chatgpt", {
+          method: "POST",
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ message}),
+})
+.then((res) => res.json())
+.then((data) => {
+  setResponse("user", message);
+  setResponse("chatgpt", data.answer);
+});
+    
+  });
+});
+</script>

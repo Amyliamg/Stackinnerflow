@@ -122,6 +122,9 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 2. [Tutorial about how to embedded Video in the Background](https://redstapler.co/responsive-css-video-background/)
 
+3. [Advanced ChatGPT Guide - How to build your own Chat GPT Site](https://www.youtube.com/watch?v=bB7xkRsEq-g)
+
+4. [Send Email using HTML + JavaScript (EmailJs Tutorial)](https://www.youtube.com/watch?v=dgcYOm8n8ME)
 --------------------------------------------------------
 Great insights from the assignment template
 [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)

@@ -1,17 +1,34 @@
-<h2>Login</h2>
+<style>
+  .bg-grey {
+    background-color: #f1f1f1;
+  }
+</style>
+
+<body class="bg-grey"> 
+
+  <h2 style="margin-left: 30%;" >Login</h2>
+  <h3 class="main-page-link">
+	<a href="/"> Back to Home</a></h3>
+ 
+
 {{#if message}}
 <div class="error">{{ message }}</div>
 {{/if}}
-<form method="POST" action="login">
-	<div>
-		<label for="username">Username:</label>
-		<input type="text" name="username" value="">
-	</div>
-	<div>
-		<label for="password">Password:</label> 
-		<input type="password" name="password" value="">
-	</div>
-	<div>
-		<input type="submit" value="Login">
-	</div>
-</form>
+<div class="form-container">
+  <form class ="form" method="POST" action="login">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username">
+  
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
+  
+    <input type="submit" value="Login"  id="login">
+	<p>Don't have an account? <a href="register">Register here</a>.</p>
+
+  </form>
+</div>
+
+
+
+
+</body>

@@ -1,10 +1,49 @@
-<h1>Email Template</h1>
-<a href="/edit">Go Back to Last Page</a>
-<form method="GET" action="/new">
-    <input type="text" name="Name" placeholder ="Full Name" required>
-    <input type="email" name="Email" placeholder ="Email" required>
-    <input type="text" name="Email" placeholder ="Title" required>
-    <textarea name="Message" placeholder ="Message" required></textarea>
-    <button type="submit">Send</button>
+<style>
+  .bg-grey {
+    background-color: #f1f1f1;
+  }
+  #close-button {
+    display: inline-block;
+  }
+</style>
 
-</form>
+<body class="bg-grey"> 
+
+<nav>
+    <h1 style="color: black;">Email Template</h1>
+    <a href="/edit">Go Back to Last Page</a>
+</nav>
+
+
+<main style="text-align: center;">
+  <form id="contact-form" onsubmit="sendMail(event)">
+    <input type="text" id="name" name="firstname" placeholder="First Name" required>
+    <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+    <input type="email"  id="email" name="Email" placeholder="Email" required>
+    <input type="text" id="message"  name="Message" placeholder="Message" required>
+    <button type="submit">Send</button>
+  </form>
+</main>
+
+<script>
+   function sendMail(event) {
+      event.preventDefault();
+      let params = {
+        firstname:  document.getElementById("name").value,
+        email:  document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
+
+      const serviceID = "service_zfax1wb";
+      const templateID = "template_xgykjyh";
+
+      emailjs.send(serviceID,templateID,params).then(
+        (res) =>{
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("message").value = "";
+          alert("Your message was sent successfully");
+        }
+      ).catch(err => console.log(err));
+    }
+</script>

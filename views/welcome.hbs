@@ -1,25 +1,26 @@
+
+    
      <!--Navigation Bar-->
   <nav>
-        <span class="home-link">
-             {{#if user}}
-              <a href="/edit">Go Back to Edit</a>
-               {{else}}
-                <a href="/">Main Page</a> 
-            {{/if}}
-        </span>
-        <span class="login-status">
-          {{#if user}}
-      <!--<span class="success">Logged in as: {{user.username}}</span>-->
-          Logged in as:  {{user.username}} </span>
-            <form method="GET" action="/logout" id="logout-form"> 
-              <button>logout</button>
-            </form>
-          {{else}}
-            <a href="/register">Register</a> or <a href="/login">Login</a>
-          {{/if}}
-        </span>
-    </nav>
-    
+    <span class="home-link">
+      {{#if user}}
+        <a href="/edit">Enter the System</a>
+      {{else}}
+        <a href="/">Home</a> 
+      {{/if}}
+    </span>
+    <span class="login-status" id="validateUser">
+      {{#if user}}
+        Hi {{user.username}} </span>
+        <p class="login-status">Today is: <span id="date"></span></p>
+        
+         <a href="/logout">logout</a> 
+      {{else}}
+        <a href="/register">Register</a> 
+        <a href="/login">Login</a>
+      {{/if}}
+    </span>
+  </nav>
     
     
     <video class="video-background" autoplay loop muted>
@@ -27,6 +28,12 @@
     </video>
     
     <h1 class="centertext" id="title"> 🍃 StockInnerFlow</h1>
-    <h2 class="centertext" id="subtitle">Earn More than You See </h1>
+    <br>
+    <h1 class="centertext" id="subtitle">Earn More than You See </h1>
 
-    <div class="content">
+
+<script>
+  let currentDate = new Date();
+  let dateElement = document.getElementById('date');
+  dateElement.textContent = currentDate.toLocaleDateString();
+</script>

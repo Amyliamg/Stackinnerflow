@@ -29,10 +29,12 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
+    "emailjs-com": "^3.2.0",
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "mongo-sanitize": "^1.1.0",
-    "mongoose": "^7.0.3",
-    "openai": "^3.2.1"
+    "mongoose": "^7.0.4",
+    "openai": "^3.2.1",
+    "selenium-webdriver": "^4.9.0"
   }
 }
