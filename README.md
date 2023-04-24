@@ -45,17 +45,19 @@ An Example User (List with Embedded Items):
 
 ## Wireframes
 
-/list/create - page for ading a new stock list
+/ - MainPage
 
-![list add](documentation/add.png)
+![list add](documentation/home.png)
 
-/edit - page for showing all my stock lists   <---------------------- re-write for milestone 3
+/edit - page for showing all my stock lists  
 
-![list](documentation/list.png)
+![list](documentation/Mainedit.png)
 
-/email - page for sending email to share stock lists to others   <---------------------- update for milestone 3
-
+/email - page for sending email to share stock lists to others  
 ![list](documentation/email.png)
+
+/ask-chatgpt - page for asking ChatGPT 
+![list](documentation/chatGPT.png)
 
 
 ## Site map
