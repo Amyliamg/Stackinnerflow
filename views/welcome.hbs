@@ -33,7 +33,14 @@
 
 
 <script>
-  let currentDate = new Date();
+  class MyDate extends Date {
+  constructor() {
+    super();
+    return new Date();
+  }
+}
+let currentDate = new MyDate();
+
   let dateElement = document.getElementById('date');
   dateElement.textContent = currentDate.toLocaleDateString();
 </script>
