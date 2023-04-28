@@ -130,6 +130,14 @@ The docs tell the logic of how to use OpenAI API
 Using selenium to test the code 
 
 
+
+https://user-images.githubusercontent.com/95515518/235227702-637c5deb-bacc-4fa3-9161-04e267cc529d.mp4
+
+
+
+
+
+
 ## Annotations / References Used
 
 1. [tutorial on React](https://www.google.com/search?q=tutorial+on+react&rlz=1C5CHFA_enUS969US969&oq=tutorial+on+react&aqs=chrome..69i57j0i512l2j0i22i30l7.3428j0j4&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:6940e391,vid:Ke90Tje7VS0) 
