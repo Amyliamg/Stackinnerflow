@@ -4,7 +4,7 @@ import assert from 'assert';
 import { Builder, By, Key, until } from 'selenium-webdriver';
 
 // Please input those information if you want to test by yourself
-const yourEmail = "liang@nyu.edu";
+const yourEmail = "Hello@nyu.edu";
 
 const driver = new Builder()
   .forBrowser('chrome')
@@ -24,17 +24,17 @@ async function testRegister() {
     const username = await driver.findElement(By.id("username"));
     await driver.wait(until.elementIsVisible(username), 5000);
     await driver.wait(until.elementIsEnabled(username), 5000);
-    await username.sendKeys("121");
+    await username.sendKeys("Testuser1");
     const password = await driver.findElement(By.id("password"));
     await driver.wait(until.elementIsVisible(password), 10000);
     await driver.wait(until.elementIsEnabled(password), 10000);
-    await password.sendKeys("121");
+    await password.sendKeys("Testuser1");
     const register = await driver.findElement(By.id("register"));
     await driver.wait(until.elementIsEnabled(register), 10000);
     await register.click();
     await new Promise(resolve => setTimeout(resolve, 3000));
     const text = await driver.findElement(By.id("validateUser")).getText();
-    assert.strictEqual(text, 'Hi 121');
+    assert.strictEqual(text, 'Hi Testuser1');
 
 }
 
@@ -46,11 +46,11 @@ async function testLogin() {
     const username = await driver.findElement(By.id("username"));
     await driver.wait(until.elementIsVisible(username), 5000);
     await driver.wait(until.elementIsEnabled(username), 5000);
-    await username.sendKeys("121");
+    await username.sendKeys("Testuser1");
     const password = await driver.findElement(By.id("password"));
     await driver.wait(until.elementIsVisible(password), 10000);
     await driver.wait(until.elementIsEnabled(password), 10000);
-    await password.sendKeys("121");
+    await password.sendKeys("Testuser1");
     const register = await driver.findElement(By.id("login"));
     await driver.wait(until.elementIsEnabled(register), 10000);
     await register.click();
@@ -150,7 +150,7 @@ async function testChatGPT() {
 async function runTests() {
   try {
     await testWelcomePage();
-    //await testRegister();
+    await testRegister();
     await testLogin();
     await testEmailPage();
     await testChatGPT();
