@@ -43,6 +43,7 @@ const User = mongoose.model('User');
 const Item =  mongoose.model('Item');
 
 
+
 app.get('/api/stock', (req, res) => {
   app.use(express.static(path.join(__dirname, 'react1/build')));
   app.use('/api', express.static(path.join(__dirname, 'public')));
@@ -87,6 +88,7 @@ app.get('/email', async (req, res) => {
     try {
       const user = await User.findOne({ username: req.session.user.username });
       const items = user.items;
+      
       res.render('index', { user: req.session.user, items });
     } catch (err) {
       console.error(err);
@@ -205,7 +207,7 @@ app.post('/save', async (req, res) => {
       await user.save();
       message = 'Changes saved successfully';
     } else {
-      message = 'No changes made';
+      message = 'saving';
     }
   } catch (err) {
     console.error(err);

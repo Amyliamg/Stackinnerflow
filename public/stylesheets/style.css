@@ -238,3 +238,9 @@ th, td {
   .login-status button:hover {
     text-decoration: underline;
   }
+
+  .highOrderFunc {
+    font-size: medium;
+    font-weight: bold;
+    text-align: left;
+  }

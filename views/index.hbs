@@ -136,6 +136,28 @@
   });
 });
 
+
+
+const rows = document.querySelectorAll("tbody tr");
+
+const totalPrice = Array.from(rows).reduce((total, row) => {
+  const price = Number(row.querySelector("td:nth-child(4)").textContent);
+  return total + price;
+}, 0);
+const totalCount = Array.from(rows).reduce((total, row) => {
+  const price = Number(row.querySelector("td:nth-child(2)").textContent);
+  return total + 1;
+}, 0);
+const table = document.querySelector("table");
+const tfoot = table.createTFoot();
+const row = tfoot.insertRow(0);
+const cell = row.insertCell(0);
+const cell2 = row.insertCell(1);
+cell.classList.add("highOrderFunc");
+cell2.classList.add("highOrderFunc");
+cell2.textContent = `Total Price: ${totalPrice.toFixed(2)}`;
+cell.textContent = `Total Num: ${totalCount}`;
+
 </script>
 
 </body>
