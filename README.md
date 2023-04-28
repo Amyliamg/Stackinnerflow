@@ -142,17 +142,15 @@ https://user-images.githubusercontent.com/95515518/235227702-637c5deb-bacc-4fa3-
 
 ## Annotations / References Used
 
-1. [tutorial on React](https://www.google.com/search?q=tutorial+on+react&rlz=1C5CHFA_enUS969US969&oq=tutorial+on+react&aqs=chrome..69i57j0i512l2j0i22i30l7.3428j0j4&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:6940e391,vid:Ke90Tje7VS0) 
+1. [Tutorial about how to embedded Video in the Background](https://redstapler.co/responsive-css-video-background/)
 
-2. [Tutorial about how to embedded Video in the Background](https://redstapler.co/responsive-css-video-background/)
+2. [Advanced ChatGPT Guide - How to build your own Chat GPT Site](https://www.youtube.com/watch?v=bB7xkRsEq-g)
 
-3. [Advanced ChatGPT Guide - How to build your own Chat GPT Site](https://www.youtube.com/watch?v=bB7xkRsEq-g)
+3. [Send Email using HTML + JavaScript (EmailJs Tutorial)](https://www.youtube.com/watch?v=dgcYOm8n8ME)
 
-4. [Send Email using HTML + JavaScript (EmailJs Tutorial)](https://www.youtube.com/watch?v=dgcYOm8n8ME)
+4. [How to use Selenium](https://www.browserstack.com/guide/automation-using-selenium-javascript)
 
-5. [How to use Selenium](https://www.browserstack.com/guide/automation-using-selenium-javascript)
-
-6. [Building a Real-time stock ticker | Yahoo Finance Web Sockets + React)](https://www.youtube.com/watch?v=flxxyHeBowI&list=RDCMUCLNgu_OupwoeESgtab33CCw&start_radio=1&t=2177s)
+5. [Building a Real-time stock ticker | Yahoo Finance Web Sockets + React)](https://www.youtube.com/watch?v=flxxyHeBowI&list=RDCMUCLNgu_OupwoeESgtab33CCw&start_radio=1&t=2177s)
 
 --------------------------------------------------------
 
