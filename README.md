@@ -101,9 +101,11 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
     * Enable to send the email to user based on their input values 
 * (6 points) React
     * used React as the frontend framework; it is hard, so I give this 5 points
-* Digital Ocean (1 point) 
+* (1 point) dotenv 
     * Cloud to deploy the website 
-* Mongodb Altas Cloud Database (1 point) 
+* (1 point) Digital Ocean 
+    * Cloud to deploy the website 
+* (1 point) Mongodb Altas Cloud Database (1 point) 
     * Cloud database to store the dataset about this webpage
 * (5 points) Selenium Test
     * used Selenium to check whether the webpage works 
@@ -128,6 +130,14 @@ The docs tell the logic of how to use OpenAI API
 
 ## [Link to test.mjs](test.mjs) 
 Using selenium to test the code 
+
+
+
+https://user-images.githubusercontent.com/95515518/235227702-637c5deb-bacc-4fa3-9161-04e267cc529d.mp4
+
+
+
+
 
 
 ## Annotations / References Used
